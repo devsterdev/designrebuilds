@@ -19,7 +19,7 @@ const Card = () => {
   };
 
   return (
-    <div className={`relative h-125 w-90 ${theme.bg} rounded-3xl transition-colors duration-300 ease-in-out`}>
+    <div className={`relative h-125 w-90 ${theme.bg} rounded-3xl ease-in-out shadow-2xl hover:-translate-y-2 transform transition-transform duration-200`}>
       
 
       <div className="absolute top-5 right-5 z-20">

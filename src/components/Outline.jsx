@@ -9,24 +9,24 @@ const Outline = ({ text, link, children, className }) => {
         className
       )}
     >
-      {/* Window Header */}
+
       <div className="flex h-12 items-center justify-between border-b border-white/5 bg-zinc-900/50 px-4 backdrop-blur-xl">
         
-        {/* Left: Window Controls (Decorative) */}
+ 
         <div className="flex items-center gap-2">
           <div className="h-3 w-3 rounded-full bg-red-500/20" />
           <div className="h-3 w-3 rounded-full bg-yellow-500/20" />
           <div className="h-3 w-3 rounded-full bg-green-500/20" />
         </div>
 
-        {/* Center: Title */}
+
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
           <span className="font-mono text-xs font-medium tracking-wider text-zinc-500 uppercase">
             {text}
           </span>
         </div>
 
-        {/* Right: Link Button */}
+
         <div className="flex items-center">
           {link && (
             <a
@@ -35,7 +35,7 @@ const Outline = ({ text, link, children, className }) => {
               rel="noopener noreferrer"
               className="flex items-center gap-1.5 rounded-full border border-zinc-800 bg-zinc-900 px-3 py-1.5 text-[10px] font-medium text-zinc-400 hover:border-blue-500/30 hover:bg-blue-500/10 hover:text-blue-400"
             >
-              <span>Source</span>
+              <span>Inspiration</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="12"
@@ -56,9 +56,9 @@ const Outline = ({ text, link, children, className }) => {
         </div>
       </div>
 
-      {/* Content Area / Canvas */}
+
       <div className="relative flex min-h-[300px] w-full items-center justify-center bg-zinc-950 p-8 md:p-12">
-        {/* Background Dot Pattern */}
+
         <div 
             className="absolute inset-0 opacity-20"
             style={{
@@ -67,7 +67,7 @@ const Outline = ({ text, link, children, className }) => {
             }}
         ></div>
         
-        {/* Child Container */}
+
         <div className="relative z-10 w-full flex justify-center">
           {children}
         </div>
