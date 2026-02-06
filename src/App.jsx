@@ -3,6 +3,7 @@ import Keyboard from "./components/Keyboard";
 import ParticleCanvas from "./components/ParticleCanvas";
 import Outline from "./components/Outline";
 import Card from "./components/Card";
+import GlassCard from "./components/GlassCard";
 
 function App() {
   return (
@@ -18,6 +19,10 @@ function App() {
 
         <Outline text="Card Component" link="https://kree8.studio/">
           <Card />
+        </Outline>
+
+        <Outline text="Black Card" link="https://x.com/ava_thiery/status/2018604506179670524  ">
+          <GlassCard />
         </Outline>
       </div>
     </>

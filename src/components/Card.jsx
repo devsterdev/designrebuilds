@@ -9,7 +9,7 @@ const Card = () => {
 
   const theme = {
     bg: isDark ? "bg-neutral-900" : "bg-white",
-    innerBg: isDark ? "bg-neutral-800/50" : "bg-gray-100",
+    innerBg: isDark ? "bg-neutral-900/50" : "bg-gray-100",
     textPrimary: isDark ? "text-white" : "text-black",
     textSecondary: isDark ? "text-neutral-400" : "text-gray-600",
     textMuted: isDark ? "text-neutral-500" : "text-gray-400",
@@ -28,7 +28,7 @@ const Card = () => {
 
       <div className="relative w-full p-1">
         <div
-          className={`${theme.innerBg} rounded-3xl border border-solid ${theme.border} pb-7 p-4 transition-colors duration-300`}
+          className={`${theme.innerBg} rounded-3xl border-2 border-solid ${theme.border} pb-7 p-4 transition-colors duration-300`}
         >
           <div className="w-full">
             <div className="mb-2">
