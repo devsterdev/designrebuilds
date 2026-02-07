@@ -21,7 +21,7 @@ const GlassCard = () => {
           <p className='text-[17px] text-neutral-400 w-75 group-hover:-translate-y-1 group-hover:text-neutral-300 transition-transform duration-700 ease-out'>
             We're a small team in Berlin doing design work for brands that want to stand out.
           </p>
-          <div className='absolute w-70 bottom-0 pb-2 flex justify-between group-hover:-translate-y-1 transition-transform duration-700 ease-out'>
+          <div className='absolute w-75 bottom-0 pb-2 flex justify-between group-hover:-translate-y-1 transition-transform duration-700 ease-out'>
             <div className=' text-neutral-400 group-hover:text-neutral-300 transition-transform duration-700 ease-out'>
               5 min read
             </div>
