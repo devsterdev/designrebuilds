@@ -4,6 +4,7 @@ import ParticleCanvas from "./components/ParticleCanvas";
 import Outline from "./components/Outline";
 import Card from "./components/Card";
 import GlassCard from "./components/GlassCard";
+import BlueBtn from "./components/BlueBtn";
 
 function App() {
   return (
@@ -23,6 +24,10 @@ function App() {
 
         <Outline text="Black Card" link="https://x.com/ava_thiery/status/2018604506179670524  ">
           <GlassCard />
+        </Outline>
+
+        <Outline>
+          <BlueBtn />
         </Outline>
       </div>
     </>
