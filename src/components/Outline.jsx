@@ -5,7 +5,7 @@ const Outline = ({ text, link, children, className }) => {
   return (
     <div
       className={cn(
-        "relative mx-auto  max-w-4xl overflow-hidden rounded-xl border border-zinc-800 bg-zinc-950 shadow-2xl shadow-black/50",
+        "relative mx-auto  max-w-4xl overflow-hidden rounded-xl border border-zinc-800 bg-zinc-950 shadow-2xl shadow-black/50 min-w-0",
         className
       )}
     >
