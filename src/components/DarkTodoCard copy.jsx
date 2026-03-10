@@ -34,7 +34,7 @@ const DarkTodoCard = () => {
 
   return (
     <div className="h-[320px] w-[260px] bg-gray-950 rounded-2xl text-white p-5 flex flex-col border border-white/10 shadow-lg">
-      {/* Header */}
+
       <div className="flex gap-3 text-lg items-center">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -56,9 +56,9 @@ const DarkTodoCard = () => {
         <span className="">Tasks</span>
       </div>
 
-      {/* Body */}
+
       <div className="mt-4 flex flex-col flex-1">
-        {/* Todo list */}
+
         <div className="todo-scroll flex flex-col gap-2 overflow-y-auto pr-2 h-[140px] rounded-xl p-3  ">
           {todos.map((todo) => (
             <TodoItem
@@ -70,7 +70,7 @@ const DarkTodoCard = () => {
           ))}
         </div>
 
-        {/* Input + Button */}
+
         <div className="mt-auto pt-4 flex flex-col gap-2">
           <input
             value={task}
@@ -121,7 +121,7 @@ export default DarkTodoCard;
 const TodoItem = ({ todo, onToggle, onDelete }) => {
   return (
     <div className="flex items-center gap-2 group">
-      {/* Toggle */}
+
       <button onClick={onToggle} className="transition duration-200">
         {todo.done ? (
           <svg
@@ -153,7 +153,7 @@ const TodoItem = ({ todo, onToggle, onDelete }) => {
         )}
       </button>
 
-      {/* Text */}
+
       <span
         className={`text-sm flex-1 ${
           todo.done ? "text-white/40 line-through" : "text-white"
@@ -162,7 +162,7 @@ const TodoItem = ({ todo, onToggle, onDelete }) => {
         {todo.text}
       </span>
 
-      {/* Delete */}
+  
       <button
         onClick={onDelete}
         className="opacity-0 group-hover:opacity-100 transition text-white/40 hover:text-red-400"

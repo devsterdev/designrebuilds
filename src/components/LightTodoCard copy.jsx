@@ -34,7 +34,7 @@ const LightTodoCard = () => {
 
   return (
     <div className="h-[320px] w-[260px] bg-white rounded-2xl text-black p-5 flex flex-col border border-black/10 shadow-lg">
-      {/* Header */}
+ 
       <div className="flex gap-3 text-lg items-center">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -56,9 +56,9 @@ const LightTodoCard = () => {
         <span className="">Tasks</span>
       </div>
 
-      {/* Body */}
+
       <div className="mt-4 flex flex-col flex-1">
-        {/* Todo list */}
+    
         <div className="todo-scroll flex flex-col gap-2 overflow-y-auto pr-2 h-[140px] rounded-xl p-3 todo-scroll-light">
           {todos.map((todo) => (
             <TodoItem

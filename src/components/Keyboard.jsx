@@ -4,10 +4,10 @@ import React from "react";
 const Keyboard = () => {
   return (
     <div className='relative bg-[#27272a] rounded-xl p-4 gap-[3px] inline-flex flex-col'>
-      {/* Container Font Size Reduced to 11px */}
+
       <div className="flex flex-col gap-[3px] text-[11px]"> 
       
-      {/* Row 1 */}
+
       <div className="flex gap-[3px]">
         <BigKey className="left-0" btnw="" char="esc" />
 
@@ -35,11 +35,11 @@ const Keyboard = () => {
 
         <DoubleKey char1={<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-volume2 lucide-volume-2 text-white" aria-hidden="true"><path d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z"></path><path d="M16 9a5 5 0 0 1 0 6"></path><path d="M19.364 18.364a9 9 0 0 0 0-12.728"></path></svg>} char2="F12" />
 
-        {/* TouchID Circle: 10*4*0.75 = 30px (w-7.5) - using explicit pixels */}
+
         <SingleKey textProp="bg-[#000000] w-[30px] h-[30px] rounded-full border-t-2 border-b-2 border-[#171717] " />
       </div>
 
-      {/* Row 2 */}
+
       <div className="flex gap-[3px]">
         <DoubleKey char1="~" char2="`" />
         <DoubleKey char1="!" char2="1" />
@@ -57,9 +57,9 @@ const Keyboard = () => {
         <BigKey className="right-0" btnw="" char="delete" />
       </div>
 
-      {/* Row 3 */}
+
       <div className="flex gap-[3px]">
-        {/* Tab - standard big key */}
+
         <BigKey className="left-0" btnw="" char="tab" />
         <SingleKey char="Q" className="rounded-xl" />
         <SingleKey char="E" className="rounded-xl" />
@@ -76,9 +76,9 @@ const Keyboard = () => {
         <DoubleKey char1="|" char2="\" />
       </div>
 
-      {/* Row 4 */}
+
       <div className="flex gap-[3px]">
-        {/* Caps: 134 * 0.75 = 100px */}
+
         <BigKey className="left-0" btnw="w-[100px]" char="Caps Lock" />
         <SingleKey char="A" className="rounded-xl" />
         <SingleKey char="S" className="rounded-xl" />
@@ -91,13 +91,12 @@ const Keyboard = () => {
         <SingleKey char="L" className="rounded-xl" />
         <DoubleKey char1=":" char2=";" />
         <DoubleKey char1='"' char2="'" />
-        {/* Return: 134 * 0.75 = 100px */}
+
         <BigKey className="right-0" btnw="w-[100px]" char="return" />
       </div>
 
-      {/* Row 5 */}
       <div className="flex gap-[3px]">
-        {/* Shift: 172 * 0.75 = 129px */}
+
         <BigKey className="left-0" btnw="w-[129px]" char="shift" />
         <SingleKey char="Z" className="rounded-xl" />
         <SingleKey char="X" className="rounded-xl" />
@@ -112,9 +111,9 @@ const Keyboard = () => {
         <BigKey className="right-0" btnw="w-[129px]" char="shift" />
       </div>
 
-      {/* Row 6 */}
+
       <div className="flex gap-[3px]">
-        {/* fn: 72 * 0.75 = 54px */}
+
         <RemainingBtn 
         className="w-[54px]"
         char1="fn"
@@ -138,7 +137,7 @@ const Keyboard = () => {
         char2class=""
         />
 
-        {/* Command: 96 * 0.75 = 72px */}
+
         <RemainingBtn 
         className="w-[72px]"
         char1={<svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-command absolute ml-1  mt-0.5   top-0 right-0" aria-hidden="true"><path d="M15 6v12a3 3 0 1 0 3-3H6a3 3 0 1 0 3 3V6a3 3 0 1 0-3 3h12a3 3 0 1 0-3-3"></path></svg>}
@@ -147,7 +146,7 @@ const Keyboard = () => {
         char2class=""
         />
 
-        {/* Space: 376 * 0.75 = 282px */}
+
         <SingleKey className="w-[282px] rounded-xl" />
 
         <RemainingBtn 
