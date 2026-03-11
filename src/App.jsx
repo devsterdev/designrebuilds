@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import Home from "./components/page/Home";
+import { Link, Route, Routes } from "react-router-dom";
+import Card from './components/Card'
+import GlassCard from "./components/GlassCard";
+import Keyboard from "./components/Keyboard";
+import ParticleCanvas from "./components/ParticleCanvas";
+import HoverComp from "./components/HoverComp";
 
 export default function App() {
 
@@ -7,7 +13,7 @@ export default function App() {
     <div className="bg-[#FCFCFC] min-h-screen text-[#111] font-sans selection:bg-gray-200 transition-colors duration-300 ">
       <nav className="flex justify-between items-center py-8 md:py-12 px-6 md:px-12 max-w-5xl mx-auto">
         <div className="flex items-center gap-2 cursor-pointer group">
-          <span className="font-bold text-xl md:text-2xl tracking-tighter">devster</span>
+          <Link to='/' className="font-bold text-xl md:text-2xl tracking-tighter hover:scale-105 transition ease-in-out duration-100">devster</Link>
         </div>
 
         <div className="flex flex-col gap-6 md:gap-10">
@@ -28,40 +34,21 @@ export default function App() {
         </div>
       </nav>
 
-      <main className="max-w-3xl mx-auto px-6 md:px-12 flex flex-col">
-        <div className="flex justify-start items-center min-h-[30vh] py-12">
-          <h1 className="text-3xl md:text-4xl lg:text-[2.5rem] font-medium tracking-tight">
-            Watch my components.
-          </h1>
-        </div>
-
-        <div className="flex flex-col border-t border-[#EAEAEA] w-full pb-24">
-          <Component srNum="01" name="Keyboard" />
-          <Component srNum="02" name="Particle Canvas" />
-          <Component srNum="03" name="Outline" />
-        </div>
-      </main>
+      <div className="flex justify-center items-center w-full">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/Card" element={<Card />} />
+          <Route path="/glass-card" element={<GlassCard />} />
+          <Route path="/KeyBoard" element={<Keyboard />} />
+          <Route path="/partical" element={<ParticleCanvas />} />
+          <Route path="/hover-item" element={<HoverComp />} />
+        </Routes>
+      </div>
     </div>
   );
 }
 
-const Component = ({ name, srNum }) => (
-  <Link
-    key={srNum}
-    className="group py-6 px-4 border-b border-[#EAEAEA] cursor-pointer grid grid-cols-[60px_1fr] md:grid-cols-[100px_1fr] items-center"
-    to='/blueBtn'
-  >
 
-    <span className="text-sm text-[#A0A0A0] font-medium tabular-nums transition-all duration-500 ease-out group-hover:blur-[3px] group-hover:opacity-30">
-      {srNum}
-    </span>
-    
-
-    <span className="text-lg md:text-xl font-medium origin-left transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.03] group-hover:text-[#000 inline-block">
-      {name}
-    </span>
-  </Link>
-)
 
 const Year = ({year}) => (
   <div className="text-xl border-b-2 border-[#EAEAEA] text-neutral-400 font-medium w-full">
