@@ -6,6 +6,7 @@ import GlassCard from "./components/GlassCard";
 import Keyboard from "./components/Keyboard";
 import ParticleCanvas from "./components/ParticleCanvas";
 import HoverComp from "./components/HoverComp";
+import Notifi from "./components/Notifi";
 
 export default function App() {
 
@@ -42,6 +43,7 @@ export default function App() {
           <Route path="/KeyBoard" element={<Keyboard />} />
           <Route path="/partical" element={<ParticleCanvas />} />
           <Route path="/hover-item" element={<HoverComp />} />
+          <Route path="/notification" element={<Notifi />} />
         </Routes>
       </div>
     </div>

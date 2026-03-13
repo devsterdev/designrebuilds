@@ -12,10 +12,11 @@ const Home = () => {
 
         <div className="flex flex-col border-t border-[#EAEAEA] w-full pb-24">
           <Component srNum="01" name="Hover Item" to='/hover-item' />
-          <Component srNum="02" name="Card" to='/card' />
-          <Component srNum="03" name="Glass Card" to='/glass-card' />
-          <Component srNum="04" name="Partical Canvas" to='/partical' />
-          <Component srNum="05" name="Aceternity Keyboard" to='/keyboard' />
+          <Component srNum="02" name="Notification animation" to='/notification' />
+          <Component srNum="03" name="Card" to='/card' />
+          <Component srNum="04" name="Glass Card" to='/glass-card' />
+          <Component srNum="05" name="Partical Canvas" to='/partical' />
+          <Component srNum="06" name="Aceternity Keyboard" to='/keyboard' />
         </div>
       </main>
   )
