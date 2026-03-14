@@ -1,5 +1,30 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
+
+
+
+function useOutsideClick(ref, callback, enabled = true) {
+  useEffect(() => {
+    if (!enabled) return;
+
+    function handleClick(e) {
+      if (!ref.current) return;
+      if (!ref.current.contains(e.target)) {
+        callback();
+      }
+    }
+
+    document.addEventListener("mousedown", handleClick);
+    document.addEventListener("touchstart", handleClick);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClick);
+      document.removeEventListener("touchstart", handleClick);
+    };
+  }, [ref, callback, enabled]);
+}
+
+
 
 export default function Notifi() {
   return (
@@ -9,11 +34,14 @@ export default function Notifi() {
   );
 }
 
+
+
 const Notif = () => {
   const [step, setStep] = useState("idle"); // idle | dropping | open
   const [isAnimating, setIsAnimating] = useState(false);
   const [showContent, setShowContent] = useState(false);
-  
+
+  const containerRef = useRef(null);
 
   const youtube = [
     {
@@ -38,6 +66,7 @@ const Notif = () => {
 
   const handleToggle = () => {
     if (isAnimating) return;
+
     setIsAnimating(true);
 
     if (step === "idle") {
@@ -46,7 +75,6 @@ const Notif = () => {
       setTimeout(() => {
         setStep("open");
 
-        // wait panel morph finish
         setTimeout(() => {
           setShowContent(true);
           setIsAnimating(false);
@@ -63,9 +91,24 @@ const Notif = () => {
     }
   };
 
+
+
+  useOutsideClick(
+    containerRef,
+    () => {
+      if (step === "open" && !isAnimating) {
+        handleToggle();
+      }
+    },
+    step === "open"
+  );
+
   return (
-    <div className="flex flex-col items-center w-full max-w-[380px] relative">
-      {/* BUTTON */}
+    <div
+      ref={containerRef}
+      className="flex flex-col items-center w-full max-w-[380px] relative"
+    >
+
       <button
         onClick={handleToggle}
         className="relative flex items-center justify-center h-14 w-14 bg-black border border-white/10 rounded-full shadow-2xl hover:bg-neutral-900 active:scale-95 transition-all z-30"
@@ -73,7 +116,7 @@ const Notif = () => {
         <NotificationIcon />
       </button>
 
-      {/* MORPH ELEMENT */}
+
       <motion.div
         layoutId="noti-container"
         animate={{
@@ -89,7 +132,6 @@ const Notif = () => {
         }}
         className="absolute top-0 bg-black border border-white/10 shadow-2xl z-20 overflow-hidden"
       >
-        {/* CONTENT */}
         <AnimatePresence>
           {showContent && (
             <motion.div
@@ -109,13 +151,6 @@ const Notif = () => {
                 <h2 className="text-white text-2xl font-bold tracking-tight">
                   Notifications
                 </h2>
-
-                <button
-                  onClick={handleToggle}
-                  className="text-[#8e8e93] hover:text-white transition-colors p-1.5 rounded-full hover:bg-[#1c1c1e]"
-                >
-                  <CloseIcon />
-                </button>
               </motion.div>
 
               {/* LIST */}
@@ -125,9 +160,7 @@ const Notif = () => {
                 variants={{
                   hidden: {},
                   show: {
-                    transition: {
-                      staggerChildren: 0.09,
-                    },
+                    transition: { staggerChildren: 0.09 },
                   },
                 }}
                 className="flex flex-col gap-5"
@@ -176,18 +209,9 @@ const Notif = () => {
   );
 };
 
-// ICONS
+
 
 const NotificationIcon = () => (
-  <svg width="22" height="22" viewBox="0 0 24 24" stroke="white" fill="none">
-    <path d="M10 5a2 2 0 1 1 4 0a7 7 0 0 1 4 6v3a4 4 0 0 0 2 3h-16a4 4 0 0 0 2 -3v-3a7 7 0 0 1 4 -6" />
-    <path d="M9 17v1a3 3 0 0 0 6 0v-1" />
-  </svg>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-bell-ringing"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 5a2 2 0 0 1 4 0a7 7 0 0 1 4 6v3a4 4 0 0 0 2 3h-16a4 4 0 0 0 2 -3v-3a7 7 0 0 1 4 -6" /><path d="M9 17v1a3 3 0 0 0 6 0v-1" /><path d="M21 6.727a11.05 11.05 0 0 0 -2.794 -3.727" /><path d="M3 6.727a11.05 11.05 0 0 1 2.792 -3.727" /></svg>
 );
 
-const CloseIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" stroke="currentColor" fill="none">
-    <path d="M18 6l-12 12" />
-    <path d="M6 6l12 12" />
-  </svg>
-);
