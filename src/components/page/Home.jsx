@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
-    <main className="max-w-3xl mx-auto px-6 md:px-12 flex flex-col">
+    <main className="max-w-3xl mx-auto px-6 md:px-12 flex flex-col font-mclaren">
         <div className="flex justify-start items-center min-h-[30vh] py-12">
           <h1 className="text-3xl md:text-4xl lg:text-[2.5rem] font-medium tracking-tight">
             Watch my components.

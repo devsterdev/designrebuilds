@@ -4,7 +4,7 @@ import { easeInOut, motion } from "motion/react";
 const HoverComp = ({before, after, img}) => {
   
   return (
-    <div className='h-screen bg-gray-50 flex flex-col items-center  gap-5'>
+    <div className='h-screen bg-gray-50 flex flex-col items-center gap-5'>
       <Item before="the " after="cat slept" img="https://i.pinimg.com/1200x/dc/00/eb/dc00ebc8d85a3cf802aecb502cf7e212.jpg" />
       <Item before="a small" after="bird flew" img="https://i.pinimg.com/736x/bc/f7/83/bcf783bf7bbc924fe62886b04e0736bf.jpg" />
       <Item before="people watched the" after="clocktower chime" img="https://i.pinimg.com/736x/2d/cd/7b/2dcd7b3aa2fd63985ceb509a3e60f678.jpg" />
@@ -22,7 +22,7 @@ const Item = ({before, after, img}) => {
     <motion.div
     initial="hidden"
     whileHover="show"
-    className="text-orange-500 text-[50px] whitespace-nowrap w-fit flex justify-center items-center cursor-default font-work">
+    className="text-orange-500 text-[50px] whitespace-nowrap w-fit flex justify-center items-center cursor-default font-quando">
       {before}
 
       <span className="flex items-center pl-3">

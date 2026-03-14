@@ -1,4 +1,20 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&family=McLaren&family=Peralta&family=Quando&family=Skranji:wght@400;700&display=swap');
+
+
 @import "tailwindcss";
+
+
+
+
+@theme {
+  --font-bodoni: "Libre Bodoni", serif;
+  --font-peralta: "Peralta", serif;
+  --font-skranji: "Skranji", serif;
+  --font-quando: "Quando", serif;
+  --font-mclaren: "McLaren", serif;
+}
+
 
 /* Nice scrollbar for your todo list */
 .todo-scroll::-webkit-scrollbar {
@@ -35,3 +51,6 @@
 .todo-scroll-light::-webkit-scrollbar-thumb:hover {
   background: rgba(0, 0, 0, 0.25);
 }
+
+
+
