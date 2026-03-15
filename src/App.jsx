@@ -14,7 +14,7 @@ export default function App() {
     <div className="bg-[#FCFCFC] min-h-screen text-[#111] font-sans selection:bg-gray-200 transition-colors duration-300 ">
       <nav className="flex justify-between items-center py-8 md:py-12 px-6 md:px-12 max-w-5xl mx-auto">
         <div className="flex items-center gap-2 cursor-pointer group">
-          <Link to='/' className="font-bold text-xl md:text-2xl tracking-tighter hover:scale-105 transition ease-in-out duration-100">devster</Link>
+          <Link to='/' className="font-bold text-xl md:text-2xl tracking-tighter hover:scale-105 transition ease-in-out duration-100 font-mclaren">Home</Link>
         </div>
 
         <div className="flex flex-col gap-6 md:gap-10">
