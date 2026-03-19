@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import cls from "classnames";
-import { AnimatePresence, motion } from "motion/react"
+import { motion, AnimatePresence } from "motion/react"
 
 export const useOutsideClick = (ref, callback, enabled = true) => {
   useEffect(() => {
@@ -27,57 +27,117 @@ const Delet = () => {
   const [open, setOpen] = useState(false);
   const [delet, setDelet] = useState(false)
   useOutsideClick(wrapperRef, () => {
-  setOpen(false)
-  setDelet(false)
-}, open)
+    setOpen(false)
+    setDelet(false)
+  }, open)
+  
+  const menuItems = [
+      {
+        icon: <InfoIcon />,
+        text: "Info"
+      },
+      {
+        icon: <DublicateIcon />,
+        text: "Rename"
+      },
+      {
+        icon: <DownloadIcon />,
+        text: "Download"
+      },
+      {
+        icon: <ShareIcon />,
+        text: "Share"
+      }
+  ]
+  const menuVariants = {
+    hidden: {
+      opacity: 0,
+      y: 20,
+      scale: 0.95,
+      filter: "blur(4px)",
+      transition: { duration: 0.3, ease: "easeIn" },
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      filter: "blur(0px)",
+      transition: {
+        type: "spring",
+        stiffness: 200,
+        damping: 20,
+        duration: 0.3,
+      },
+    },
+  };
+
+  const listVariants = {
+    hidden: {
+      transition: { staggerChildren: 0.05, staggerDirection: -1 },
+    },
+    visible: {
+      transition: { staggerChildren: 0.05, delayChildren: 0.1 },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, x: -10 },
+    visible: { opacity: 1, x: 0, transition: { type: "spring", stiffness: 100, damping: 24 } },
+  };
+
   return (
     <div ref={wrapperRef}  className="relative flex items-start h-10">
       <button
-        onClick={() => setOpen(!open)}
-        className="p-2 shadow-[0_1px_2px_rgba(0,0,0,0.05),0_8px_20px_rgba(0,0,0,0.08),0_20px_40px_rgba(0,0,0,0.12)] rounded-xl bg-neutral-50 active:scale-95 transition-transform duration-100"
+        onClick={() => {
+          if (open) {
+            setOpen(false);
+            setTimeout(() => setDelet(false), 200);
+          } else {
+            setOpen(true);
+          }
+        }}
+        className="p-2  shadow-[0_1px_1px_rgba(0,0,0,0.04),0_6px_18px_rgba(0,0,0,0.12)] rounded-xl bg-neutral-50 active:scale-95 transition-transform duration-100"
       >
-        <DotSvg />
+        <DotSvg />  
       </button>
       <AnimatePresence>
       {open && (
         <motion.div
-        initial={{
-          opacity: 0,
-          // scale: 0.50,
-          y: 100,
-        }} 
-        animate={{
-          opacity: 1,
-          // scale: 1,
-          y: 0,
-          filter: "blur(0px)"
-        }}
-        transition={{
-          duration: 0.3,
-          ease: "easeInOut",
-        }}
-        exit={{
-          opacity: 0,
-          y: 100,
-          filter: "blur(10px)"
-        }}
+          initial={{ opacity: 0, y: 40, scale: 0.8 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{
+            y: { type: "spring", stiffness: 300, damping: 10 },
+            scale: { type: "spring", stiffness: 260, damping: 18 },
+            opacity: { duration: 0.2 }
+          }}
+          exit={{
+            opacity: 0,
+            y: 10,
+            scale: 0.8
+          }}
         className="absolute right-0 top-full mt-2 bg-white shadow-xl rounded-xl z-50 w-52 border border-gray-200 overflow-hidden">
           <p className="text-xs bg-gray-50 px-3 py-2 border-b border-gray-200 text-gray-500 font-medium">
             More Options
           </p>
 
-          <div className="p-1 flex flex-col">
-            <IconComp icon={<InfoIcon />} text="Info" />
-            <IconComp icon={<DublicateIcon />} text="Rename" />
-            <IconComp icon={<DownloadIcon />} text="Download" />
-            <IconComp icon={<ShareIcon />} text="Share" />
-
+          <motion.div 
+          variants={listVariants}
+          initial="hidden"
+          animate="visible"
+          className="p-1 flex flex-col"
+          >
+            {menuItems.map((item, index) => (
+              <motion.div key={index} variants={itemVariants}>
+                <IconComp key={index} icon={item.icon} text={item.text} />
+              </motion.div>
+            ))}
             <div className="my-1 border-t border-gray-200"></div>
             <div className="relative">
               
               <AnimatePresence mode="wait">
                 {!delet ? (
                   <motion.div
+                  variants={itemVariants}
                     key="delete-btn"
                     initial={{ opacity: 1, y: -8 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -114,7 +174,7 @@ const Delet = () => {
                 )}
               </AnimatePresence>
               </div>
-          </div>
+          </motion.div>
         </motion.div>
       )}
       </AnimatePresence>
@@ -190,50 +250,3 @@ const IconComp = ({ icon, text, className, onClick }) => (
     <span>{text}</span>
   </button>
 );
-
-
-
-{/* <AnimatePresence>
-              {
-              !delet && <motion.div
-              initial={{
-                opacity: 0,
-                y: 50,
-              }}
-              animate={{
-                opacity: 1,
-                y: 0,
-              }}
-              transition={{
-                duration: 0.3,
-                ease: "easeInOut"
-              }}
-              onClick={() => setDelet(true)}
-              className="relative iniline-block z-10">
-              <IconComp
-                icon={<DeleteIcon />}
-                text="Delete"
-                className="text-red-500 hover:bg-red-50"
-                />
-              </motion.div>
-              }
-              </AnimatePresence>
-              <AnimatePresence>
-              {
-              delet && <motion.div
-              initial={{
-                opacity: 0,
-                y: 50,
-              }}
-              animate={{
-                opacity: 1,
-                y: 0,
-              }}
-              className="gap-1 flex w-full items-center justify-center relative top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                <button className="bg-red-500 text-white rounded-xl py-1 flex-1">Yes, Delete</button>
-                <button 
-                onClick={() => setDelet(false)}
-                className="bg-neutral-100 text-gray-700 rounded-xl py-1 flex-1">Cancel</button>
-              </motion.div>
-              }
-              </AnimatePresence> */}
