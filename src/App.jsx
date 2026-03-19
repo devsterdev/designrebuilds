@@ -7,6 +7,7 @@ import Keyboard from "./components/Keyboard";
 import ParticleCanvas from "./components/ParticleCanvas";
 import HoverComp from "./components/HoverComp";
 import Notifi from "./components/Notifi";
+import Delet from "./components/Delet";
 
 export default function App() {
 
@@ -44,6 +45,7 @@ export default function App() {
           <Route path="/partical" element={<ParticleCanvas />} />
           <Route path="/hover-item" element={<HoverComp />} />
           <Route path="/notification" element={<Notifi />} />
+          <Route path="/delete-menu" element={<Delet />} />
         </Routes>
       </div>
     </div>
