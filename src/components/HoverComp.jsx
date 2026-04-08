@@ -22,7 +22,7 @@ const Item = ({before, after, img}) => {
     <motion.div
     initial="hidden"
     whileHover="show"
-    className="text-orange-500 text-[50px] whitespace-nowrap w-fit flex justify-center items-center cursor-default font-quando">
+    className="text-orange-500 text-[40px] whitespace-nowrap w-fit flex justify-center items-center cursor-default font-quando">
       {before}
 
       <span className="flex items-center pl-3">

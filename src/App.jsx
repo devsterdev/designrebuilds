@@ -8,6 +8,7 @@ import ParticleCanvas from "./components/ParticleCanvas";
 import HoverComp from "./components/HoverComp";
 import Notifi from "./components/Notifi";
 import Delet from "./components/Delet";
+import TextEntry from "./components/TextEntry";
 
 export default function App() {
 
@@ -39,6 +40,7 @@ export default function App() {
       <div className="flex justify-center items-center w-full">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/color-text" element={<TextEntry />} />
           <Route path="/Card" element={<Card />} />
           <Route path="/glass-card" element={<GlassCard />} />
           <Route path="/KeyBoard" element={<Keyboard />} />
