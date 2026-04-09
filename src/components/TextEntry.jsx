@@ -1,9 +1,21 @@
 import React, { useEffect } from 'react'
 import { motion, useAnimate, stagger} from 'motion/react'
 
+
 const TextEntry = () => {
+  return (
+    <div>
+      <TextColor 
+      text="Sometimes things feel complicated for no clear reason, and we get caught up in small details that don’t really matter. We overthink, we hesitate, and we let simple situations turn into something bigger than they need to be. But in the end, most problems pass, and we realize we could have taken things a little easier"
+      />
+    </div>
+  )
+}
+
+export default TextEntry
+
+const TextColor = ({text}) => {
   const [scope, animate] = useAnimate();
-  const text = "Sometimes things feel complicated for no clear reason, and we get caught up in small details that don’t really matter. We overthink, we hesitate, and we let simple situations turn into something bigger than they need to be. But in the end, most problems pass, and we realize we could have taken things a little easier"
 
   useEffect(()=>{
     startAnimating()
@@ -47,5 +59,3 @@ const TextEntry = () => {
     </div>
   )
 }
-
-export default TextEntry
